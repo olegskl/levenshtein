@@ -1,0 +1,30 @@
+{
+    "name": "Levenshtein/Damerau-Levenshtein distance.",
+    "version": "0.1.0",
+    "main": "levenshtein.js",
+    "description": "Calculates an optimal string alignment distance.",
+    "keywords": [
+        "Levenshtein", "Damerau-Levenshtein",
+        "edit distance", "optimal string alignment distance"
+    ],
+    "author": {
+        "name": "Oleg Sklyanchuk",
+        "email": "sklyanchuk@gmail.com",
+        "url": "oregu.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/olegskl/levenshtein.git"
+    },
+    "bugs": "http://github.com/olegskl/levenshtein/issues",
+    "devDependencies": {
+        "mocha": "*"
+    },
+    "engines": {
+        "node": "*"
+    },
+    "scripts": {
+        "test": "mocha -R spec"
+    },
+    "license": "MIT"
+}
