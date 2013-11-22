@@ -1,5 +1,5 @@
 {
-    "name": "Levenshtein/Damerau-Levenshtein distance.",
+    "name": "levenshtein",
     "version": "0.1.0",
     "main": "levenshtein.js",
     "description": "Calculates an optimal string alignment distance.",
