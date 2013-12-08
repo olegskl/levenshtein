@@ -35,7 +35,7 @@ module.exports = function (a, b, transpose) {
     for (i = 0; i <= a.length; i += 1) {
         matrix[i] = [i];
     }
-    for (i = 0; i <= b.length; i += 1) {
+    for (i = 1; i <= b.length; i += 1) {
         matrix[0][i] = i;
     }
 
