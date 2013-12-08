@@ -55,6 +55,22 @@ var assert = require('assert'),
         {a: 'CA', b: 'ABC', result: 3} // 1 deletion, 2 insertions
     ];
 
+function levenshteinTestCase(test) {
+    var statement = 'should be ' + test.result +
+        ' for ("' + test.a + '", "' + test.b + '")';
+    it(statement, function () {
+        assert.strictEqual(levenshtein(test.a, test.b), test.result);
+    });
+}
+
+function damerauLevenshteinTestCase(test) {
+    var statement = 'should be ' + test.result +
+        ' for ("' + test.a + '", "' + test.b + '")';
+    it(statement, function () {
+        assert.strictEqual(levenshtein(test.a, test.b, true), test.result);
+    });
+}
+
 // Sanity validation:
 describe('library endpoint', function () {
     it('should be a function', function () {
@@ -100,20 +116,10 @@ describe('library endpoint', function () {
 
 // Computing pure Levenshtein distance (no character transposition):
 describe('levenshtein distance', function () {
-    levenshteinTests.forEach(function (test) {
-        it('should be ' + test.result + ' for ("' + test.a + '", "' + test.b +
-                '")', function () {
-            assert.strictEqual(levenshtein(test.a, test.b), test.result);
-        });
-    });
+    levenshteinTests.forEach(levenshteinTestCase);
 });
 
 // Computing Damerau-Levenshtein distance (with character transposition):
 describe('damerau-levenshtein distance', function () {
-    damerauLevenshteinTests.forEach(function (test) {
-        it('should be ' + test.result + ' for ("' + test.a + '", "' + test.b +
-                '")', function () {
-            assert.strictEqual(levenshtein(test.a, test.b, true), test.result);
-        });
-    });
+    damerauLevenshteinTests.forEach(damerauLevenshteinTestCase);
 });
