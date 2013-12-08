@@ -19,7 +19,11 @@ var assert = require('assert'),
         {a: 'abc', b: 'abc', result: 0}, // equal strings, no operations
         {a: 'a', b: 'b', result: 1}, // one substitution
         {a: 'a', b: '', result: 1}, // one deletion
+        {a: 'aabc', b: 'abc', result: 1}, // one deletion
+        {a: 'abcc', b: 'abc', result: 1}, // one deletion
         {a: '', b: 'a', result: 1}, // one insertion
+        {a: 'abc', b: 'abcc', result: 1}, // one insertion
+        {a: 'abc', b: 'aabc', result: 1}, // one insertion
         {a: 'teh', b: 'the', result: 2}, // 2 substitutions
         {a: 'tets', b: 'test', result: 2}, // 2 substitutions
         {a: 'fuor', b: 'four', result: 2}, // 2 substitutions
@@ -33,7 +37,11 @@ var assert = require('assert'),
         {a: 'abc', b: 'abc', result: 0}, // equal strings, no operations
         {a: 'a', b: 'b', result: 1}, // one substitution
         {a: 'a', b: '', result: 1}, // one deletion
+        {a: 'aabc', b: 'abc', result: 1}, // one deletion
+        {a: 'abcc', b: 'abc', result: 1}, // one deletion
         {a: '', b: 'a', result: 1}, // one insertion
+        {a: 'abc', b: 'abcc', result: 1}, // one insertion
+        {a: 'abc', b: 'aabc', result: 1}, // one insertion
         {a: 'teh', b: 'the', result: 1}, // 1 transposition
         {a: 'tets', b: 'test', result: 1}, // 1 transposition
         {a: 'fuor', b: 'four', result: 1}, // 1 transposition
