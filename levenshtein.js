@@ -18,8 +18,7 @@
  * @return {Number}                 Optimal string alignment distance.
  */
 module.exports = function (a, b, transpose) {
-    var matrix = [],
-        i, j, cost;
+    var matrix = [], i, j, cost;
 
     // Input validation:
     if (typeof a !== 'string' && !Array.isArray(a)) {
@@ -44,18 +43,18 @@ module.exports = function (a, b, transpose) {
         for (j = 1; j <= b.length; j += 1) {
             cost = (a[i - 1] === b[j - 1]) ? 0 : 1;
             matrix[i][j] = (transpose && i > 1 && j > 1 &&
-                    (a[i - 1] === b[j - 2]) && (a[i - 2] === b[j - 1])) ?
-                Math.min(
-                    matrix[i - 1][j] + 1, // deletion
-                    matrix[i][j - 1] + 1, // insertion
-                    matrix[i - 1][j - 1] + cost, // substitution
-                    matrix[i - 2][j - 2] + cost // transposition
-                ) :
-                Math.min(
-                    matrix[i - 1][j] + 1, // deletion
-                    matrix[i][j - 1] + 1, // insertion
-                    matrix[i - 1][j - 1] + cost // substitution
-                );
+                (a[i - 1] === b[j - 2]) && (a[i - 2] === b[j - 1])) ?
+                    Math.min(
+                        matrix[i - 1][j] + 1, // deletion
+                        matrix[i][j - 1] + 1, // insertion
+                        matrix[i - 1][j - 1] + cost, // substitution
+                        matrix[i - 2][j - 2] + cost // transposition
+                    ) :
+                    Math.min(
+                        matrix[i - 1][j] + 1, // deletion
+                        matrix[i][j - 1] + 1, // insertion
+                        matrix[i - 1][j - 1] + cost // substitution
+                    );
         }
     }
 
