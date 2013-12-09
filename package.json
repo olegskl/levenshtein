@@ -18,13 +18,14 @@
     },
     "bugs": "http://github.com/olegskl/levenshtein/issues",
     "devDependencies": {
+        "jslint": "*",
         "mocha": "*"
     },
     "engines": {
         "node": "*"
     },
     "scripts": {
-        "test": "mocha -R spec"
+        "test": "jslint levenshtein.js && mocha -R spec"
     },
     "license": "MIT"
 }
